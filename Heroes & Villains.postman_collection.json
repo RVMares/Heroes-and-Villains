@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "bf7cb1af-177a-4bc2-9607-43384de23b03",
+		"name": "Heroes & Villains",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24423651"
+	},
+	"item": [
+		{
+			"name": "GET super by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/supers/2/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"supers",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new super to db",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"The Joker\",\r\n    \"alter_ego\": \"Jack Napier\",\r\n    \"primary_ability\": \"Insanity\",\r\n    \"secondary_ability\": \"Trap Master\",\r\n    \"catchphrase\": \"Have you ever danced with the devil in the pale moonlight?\",\r\n    \"super_type\": \"villain\",\r\n    \"super_type_id\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/supers/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"supers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE existing super in db",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"The Joker\",\r\n    \"alter_ego\": \"Jack Napier\",\r\n    \"primary_ability\": \"Criminal mastermind\",\r\n    \"secondary_ability\": \"Expert chemist\",\r\n    \"catchphrase\": \"Have you ever danced with the devil in the pale moonlight?\",\r\n    \"super_type\": \"villain\",\r\n    \"super_type_id\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/supers/6/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"supers",
+						"6",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE super",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/supers/9/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"supers",
+						"9",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET all supers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/supers/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"supers",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
