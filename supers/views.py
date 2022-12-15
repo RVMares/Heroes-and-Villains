@@ -6,20 +6,28 @@ from .serializers import SupersSerializer
 from .models import Supers
 
 
-
 @api_view(['GET', 'POST'])
 def supers_list(request):
     if request.method == 'GET':
-        super_type = request.query_params.get('super_type')
-        print(super_type)
-        
-        queryset = Supers.objects.all()
 
-        if super_type:
-            queryset = queryset.filter(super__type = super_type)
-        
-        serializer = SupersSerializer(queryset, many=True)
-        return Response(serializer.data, status= status.HTTP_200_OK)
+        queryset = Supers.objects.all()
+        custom_response_dictionary = {}
+
+        heroes= queryset.filter(super_type__super_type = "hero")
+        villains= queryset.filter(super_type__super_type = "villain")
+        serialized_heroes = SupersSerializer(heroes, many=True)
+        serialized_villains = SupersSerializer(villains, many=True)
+        if request.query_params.get("super_type") == "hero":
+            custom_response_dictionary = serialized_heroes.data
+        elif request.query_params.get("super_type") == "villain":
+            custom_response_dictionary = serialized_villains.data
+        else:
+            custom_response_dictionary = {
+                "heroes": serialized_heroes.data,
+                "villains": serialized_villains.data
+                }
+
+        return Response(custom_response_dictionary, status= status.HTTP_200_OK)
     
     
     elif request.method == 'POST':
